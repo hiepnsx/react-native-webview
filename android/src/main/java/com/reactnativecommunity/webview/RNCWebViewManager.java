@@ -92,6 +92,8 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.lang.IllegalArgumentException;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -521,7 +523,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
   }
 
   @ReactProp(name = "source")
-  public void setSource(WebView view, @Nullable ReadableMap source) {
+  public void setSource(WebView view, @Nullable ReadableMap source) throws URISyntaxException {
     if (source != null) {
       if (source.hasKey("html")) {
         String html = source.getString("html");
